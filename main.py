@@ -47,21 +47,25 @@ def main():
     settings = read_settings("./settings.txt")
     if not settings:
         print("Settings file not found or empty.")
-        print("Please create a settings.txt file with the following format:")
-        print("OLLAMA_URL=<your_ollama_url>")
-        print("MODEL_NAME=<your_model_name>")
+        print("Read about in readme.txt -> Configuration")
         return
 
     ollama_url = settings.get("OLLAMA_URL")
     model_name = settings.get("MODEL_NAME")
 
+    continue_responding = True
+
     threading.Thread(target=preload_model, args=(ollama_url, model_name), daemon=True).start()
+    
+    while continue_responding:
+        prompt = input("Type something: ")
+        response = send_prompt(prompt, model_name, ollama_url)
 
-    prompt = input("Type something: ")
-    response = send_prompt(prompt, model_name, ollama_url)
+        print("AI Response:")
+        print(response)
 
-    print("AI Response:")
-    print(response)
-
+        if response.lower() == "/exit":
+            continue_responding = False
+            print("Exiting...")
 if __name__ == "__main__":
     main()
