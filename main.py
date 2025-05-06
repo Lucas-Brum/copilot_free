@@ -3,16 +3,15 @@ import requests
 import os
 
 def preload_model(ollama_url, model_name):
-    # Sends a dummy request just to warm up the model
     data = {
         "model": model_name,
-        "prompt": "Hello",  # simple prompt just to load
+        "prompt": "", 
         "stream": False
     }
     try:
         requests.post(ollama_url, json=data)
     except:
-        pass  # Ignore any errors here
+        pass  
 
 def send_prompt(prompt, model_name, ollama_url):
     data = {
@@ -47,12 +46,15 @@ def read_settings(filepath):
 def main():
     settings = read_settings("./settings.txt")
     if not settings:
+        print("Settings file not found or empty.")
+        print("Please create a settings.txt file with the following format:")
+        print("OLLAMA_URL=<your_ollama_url>")
+        print("MODEL_NAME=<your_model_name>")
         return
 
     ollama_url = settings.get("OLLAMA_URL")
     model_name = settings.get("MODEL_NAME")
 
-    # Start preloading the model in a background thread
     threading.Thread(target=preload_model, args=(ollama_url, model_name), daemon=True).start()
 
     prompt = input("Type something: ")
