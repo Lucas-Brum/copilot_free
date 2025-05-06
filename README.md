@@ -2,49 +2,71 @@
     <img src="assets/logo.png" alt="copilot_free logo" width="300"/>
 </p>
 <div align="center">
-    Assistente de codigo ia offline
+    <b>Assistente de código IA offline</b> / <b>Offline AI Code Assistant</b>
 </div>
 
-## Baixado repositorio
+---
 
-1. Faça um git clone:
+## 📥 Baixando o Repositório / Cloning the Repository
+
+1. **Clone o repositório** / **Clone the repository**:
     ```bash
     git clone https://github.com/Lucas-Brum/copilot_free.git
     ```
 
-## Ambiente Virtual
+---
 
-Recomenda-se criar um ambiente virtual com python3.8    
-para isolar as dependências do projeto. Siga os passos abaixo:
+## 🐍 Ambiente Virtual / Virtual Environment
 
-1. Crie o ambiente virtual:
+> 🔄 Recomenda-se criar um ambiente virtual com **Python 3.8** para isolar as dependências do projeto.  
+> 🔄 It is recommended to create a virtual environment with **Python 3.8** to isolate the project dependencies.
+
+1. **Crie o ambiente virtual** / **Create the virtual environment**:
     ```bash
     python3 -m venv venv
     ```
-2. Ative o ambiente virtual:
-    - No Linux/MacOS:
+
+2. **Ative o ambiente virtual** / **Activate the virtual environment**:
+    - No **Linux/MacOS** / On **Linux/MacOS**:
         ```bash
         source venv/bin/activate
         ```
-    - No Windows:
+    - No **Windows** / On **Windows**:
         ```bash
         venv\Scripts\activate
         ```
 
-3. Instale as dependências no ambiente virtual:
+3. **Instale as dependências** / **Install the dependencies**:
     ```bash
     pip install -r requirements.txt
     ```
-4. instale o ollama caso ainda n tenha instalado:
 
-    https://ollama.com/download
+---
 
-5. instale o modelo que vai querer usar caso ainda não tenha:
+## 🤖 Instalar o Ollama / Install Ollama
 
-    https://ollama.com/search
+4. **Instale o Ollama se ainda não tiver**  
+   **Install Ollama if you haven't already**:
 
-5. Crie um arquivo settings.txt (Ou o modelo ollama que tiver instalado)
+    👉 [https://ollama.com/download](https://ollama.com/download)
+
+5. **Instale o modelo que deseja usar**  
+   **Install the model you want to use**:
+
+    👉 [https://ollama.com/search](https://ollama.com/search)
+
+---
+
+## ⚙️ Configuração / Configuration
+
+6. **Crie um arquivo `settings.txt` com as configurações abaixo**  
+   **Create a `settings.txt` file with the settings below**:
     ```bash
     OLLAMA_URL = http://localhost:11434/api/generate
     MODEL_NAME = qwen2.5:3b
     ```
+
+---
+
+✅ **Pronto para usar!**  
+✅ **Ready to use!**
